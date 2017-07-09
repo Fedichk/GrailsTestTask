@@ -1,11 +1,11 @@
-package grailstesttask
+package com.grails.task
 
 class Counter {
     String name
-    Integer value
+    Integer value = 0
 
     static constraints = {
-        name blank: true, size: 1..20
+        name blank: false, size: 1..20
     }
 
     static mapping = {

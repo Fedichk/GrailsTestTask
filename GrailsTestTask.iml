@@ -19,7 +19,9 @@
     </facet>
     <facet type="hibernate" name="Hibernate">
       <configuration>
-        <datasource-map />
+        <datasource-map>
+          <unit-entry name="Gorm" />
+        </datasource-map>
         <naming-strategy-map />
       </configuration>
     </facet>
@@ -191,6 +193,12 @@
           <root url="jar://C:/grails2.4.5/lib/net.java.dev.jna/jna/jars/jna-4.0.0.jar!/" />
           <root url="jar://C:/grails2.4.5/lib/org.apache.ant/ant-junit/jars/ant-junit-1.8.4.jar!/" />
           <root url="jar://C:/grails2.4.5/lib/org.apache.ant/ant-trax/jars/ant-trax-1.7.1.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/hdrhistogram/HdrHistogram/2.1.9/HdrHistogram-2.1.9.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/io/reactivex/rxjava/1.2.0/rxjava-1.2.0.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/commons-configuration/commons-configuration/1.8/commons-configuration-1.8.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/com/netflix/archaius/archaius-core/0.4.1/archaius-core-0.4.1.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/com/netflix/hystrix/hystrix-core/1.5.12/hystrix-core-1.5.12.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.29/mysql-connector-java-5.1.29.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>

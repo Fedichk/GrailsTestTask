@@ -4873,3 +4873,5 @@ n:1385:java_io_File$deleteOnExit$7
 n:1489:java_io_File$delete$8
 n:1820:grails/util/BuildSettings$getBaseDir$3
 n:1408:java_io_File$getCanonicalPath$9
+n:2861:BuildConfig$_run_closure1_closure4
+n:1345:org/codehaus/groovy/grails/compiler/web/ControllerActionTransformer$1

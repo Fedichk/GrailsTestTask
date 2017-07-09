@@ -1,10 +1,16 @@
-import grailstesttask.Counter
+import com.grails.task.Counter
+import com.grails.task.MyData
 
 class BootStrap {
 
     def init = { servletContext ->
         if (Counter.findByName("QN_ID") == null) {
-            new Counter(name: "QN_ID", value: 0).save()
+            Counter counter = new Counter(name: "QN_ID")
+            if (counter.validate()) {
+                counter.save()
+            } else {
+                println(counter.errors.hasErrors())
+            }
         }
     }
     def destroy = {
