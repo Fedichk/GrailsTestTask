@@ -1,6 +1,6 @@
 package com.grails.task
 
-class MyData {
+class MyData implements Serializable {
     Integer id
     String data
     Date recordCreatedDate

@@ -2,26 +2,34 @@ package com.grails.task
 
 class YahooController {
 
-    def yahooFlow = {
-        initialize {
-            action {
-                println("Init")
-            }
-            on("success").to "getData"
+    def yahooService
 
+    def yahooFlow = {
+
+        initialize {
+            action {}
+            on("success").to "getData"
         }
 
         getData {
             on("getData") {
-                println("Work!!!")
-            }.to "result"
+                yahooService.serviceMethod()
+            }.to "load"
+        }
+
+        load {
+            action {
+                def all = yahooService.loadAll()
+                [all: all]
+            }
+            on("success").to "result"
         }
 
         result {
             on("endFlow").to "endFlow"
         }
 
-        endFlow ()
+        endFlow()
     }
 
     def index = {
