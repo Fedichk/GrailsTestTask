@@ -2,12 +2,11 @@ package com.grails.task
 
 import grails.transaction.Transactional
 
-@Transactional
 class YahooService {
 
-    public static final URL yahooURL = new URL( 'http://download.finance.yahoo.com/d/quotes.csv?s=AAPL+GOOG+MSFT&f=nab')
+    public static final URL yahooURL = new URL('http://download.finance.yahoo.com/d/quotes.csv?s=AAPL+GOOG+MSFT&f=nab')
 
-    def serviceMethod() {
+    def serviceSaveMethod() {
         def listOfResults = concatResult(getData(yahooURL))
         saveData(listOfResults)
     }
@@ -31,7 +30,7 @@ class YahooService {
                 println(counter.errors.hasErrors())
             }
             MyData myData = new MyData(id: newValue, data: it)
-            if (myData.validate()){
+            if (myData.validate()) {
                 myData.save()
             } else {
                 println(myData.errors.hasErrors())
@@ -40,7 +39,7 @@ class YahooService {
     }
 
     @Transactional(readOnly = true)
-    List<MyData> loadAll (){
+    List<MyData> loadAll() {
         return MyData.list()
     }
 }
