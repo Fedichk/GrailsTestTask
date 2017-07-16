@@ -1,7 +1,5 @@
 package com.grails.task
 
-import org.springframework.web.context.request.RequestContextHolder
-
 class YahooController {
 
     def yahooService
@@ -15,7 +13,7 @@ class YahooController {
 
         getData {
             action {
-                yahooService.serviceSaveMethod()
+                yahooService.save()
             }
             on("success").to "load"
             on(Exception).to "error"

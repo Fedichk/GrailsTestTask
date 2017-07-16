@@ -5166,3 +5166,7 @@ n:499:org/codehaus/groovy/grails/web/converters/IncludeExcludeConverter
 n:732:org/codehaus/groovy/grails/web/converters/ConfigurableConverter
 n:3082:org/codehaus/groovy/grails/web/converters/AbstractConverter
 n:1242:org/springframework/transaction/annotation/Transactional
+n:663:org/codehaus/groovy/grails/compiler/PackagingException
+y:12787:org/codehaus/groovy/runtime/MethodRankHelper
+n:445:org/codehaus/groovy/runtime/MethodRankHelper$NullObject
+n:1768:org/codehaus/groovy/runtime/MethodRankHelper$RankableMethod

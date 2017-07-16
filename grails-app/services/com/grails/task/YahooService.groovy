@@ -4,37 +4,44 @@ import grails.transaction.Transactional
 
 class YahooService {
 
-    public static final URL yahooURL = new URL('http://download.finance.yahoo.com/d/quotes.csv?s=AAPL+GOOG+MSFT&f=nab')
+    public static final URL YAHOO_URL = new URL('http://download.finance.yahoo.com/d/quotes.csv?s=AAPL+GOOG+MSFT&f=nab')
+    public static final URL YAHOO_URLA = new URL('http://download.finance.yahoo.dsfgads/d/quoteG+MSFT&f=nab')
 
-    def serviceSaveMethod() {
-        def listOfResults = concatResult(getData(yahooURL))
-        saveData(listOfResults)
+    def save() {
+        List<String> data = getData(YAHOO_URLA)
+        saveData(data)
     }
 
-    String getData(URL url) {
-        return url.getText()
-    }
-
-    List<String> concatResult(String data) {
-        return data.split('\\r?\\n')
+    List<String> getData(URL url) {
+        String rawData = url.getText()
+        return rawData.split('\\r?\\n') as List<String>
     }
 
     def saveData(List<String> dataList) {
+        int requestId = getRequestId()
         dataList.each {
-            def lastValue = Counter.last('value').getValue()
-            def newValue = lastValue + 1
-            Counter counter = new Counter(name: 'QN_ID_' + newValue, value: newValue)
-            if (counter.validate()) {
-                counter.save()
-            } else {
-                println(counter.errors.hasErrors())
-            }
-            MyData myData = new MyData(id: newValue, data: it)
-            if (myData.validate()) {
-                myData.save()
-            } else {
-                println(myData.errors.hasErrors())
-            }
+            createCounter(requestId)
+            createMyData(requestId, it)
+            requestId++
+        }
+    }
+
+    private void createMyData(int requestId, String it) {
+        MyData myData = new MyData(id: requestId, data: it)
+        myData.save()
+    }
+
+    private void createCounter(int requestId) {
+        Counter counter = new Counter(name: 'QN_ID_' + requestId, value: requestId)
+        counter.save()
+    }
+
+    private int getRequestId() {
+        Counter counter = Counter.last('value')
+        if (counter) {
+            return counter.getValue() + 1
+        } else {
+            return 0
         }
     }
 
