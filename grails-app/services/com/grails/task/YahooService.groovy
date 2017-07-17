@@ -1,17 +1,19 @@
 package com.grails.task
 
+import com.netflix.hystrix.Hystrix
+import com.netflix.hystrix.HystrixCommand
 import grails.transaction.Transactional
 
 class YahooService {
 
     public static final URL YAHOO_URL = new URL('http://download.finance.yahoo.com/d/quotes.csv?s=AAPL+GOOG+MSFT&f=nab')
-    public static final URL YAHOO_URLA = new URL('http://download.finance.yahoo.dsfgads/d/quoteG+MSFT&f=nab')
 
     def save() {
-        List<String> data = getData(YAHOO_URLA)
+        List<String> data = getData(YAHOO_URL)
         saveData(data)
     }
 
+//    @HystrixCommand
     List<String> getData(URL url) {
         String rawData = url.getText()
         return rawData.split('\\r?\\n') as List<String>

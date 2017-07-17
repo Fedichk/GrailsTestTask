@@ -5170,3 +5170,10 @@ n:663:org/codehaus/groovy/grails/compiler/PackagingException
 y:12787:org/codehaus/groovy/runtime/MethodRankHelper
 n:445:org/codehaus/groovy/runtime/MethodRankHelper$NullObject
 n:1768:org/codehaus/groovy/runtime/MethodRankHelper$RankableMethod
+y:12748:com/netflix/hystrix/HystrixCommand
+n:510:com/netflix/hystrix/HystrixExecutable
+n:196:com/netflix/hystrix/HystrixInvokable
+n:1677:com/netflix/hystrix/HystrixInvokableInfo
+n:387:com/netflix/hystrix/HystrixObservable
+n:43627:com/netflix/hystrix/AbstractCommand
+n:3774:com/netflix/hystrix/Hystrix
